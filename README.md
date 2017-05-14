@@ -110,7 +110,7 @@ sub CustomHandler2
 
     return 200;
   } else {
-    $$r{'type'} = 'text/html'; # manually set
+    $$r{'type'} = 'text/html'; # override default mime-type
 
     $$r{'template'} = 'test.html';
 
