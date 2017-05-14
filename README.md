@@ -132,7 +132,7 @@ my $config = {
   'amap' => { # absolute
     '^\/testLocation1\/?$'       => \&CustomHandler1, # pointer to handler function
     '^\/testLocation1\/(\d+?)?'  => \&CustomHandler2,
-    'Q'                          => 'W.html' # static template for every url request with at least one character 'Q' in URL
+    'Q'                          => 'W.html'          # static template for every url request with at least one character 'Q' in URL
   },
 
   'map' => {
@@ -142,17 +142,17 @@ my $config = {
   # first 'amap' then 'map', merged in one list, then reversed
   # each request will iterate those list until match would be found
 
-  'dir'                 => '/www/my_test_app/', # used in $$customRequest{'dir'} inside CustomHandlers
-  'dir_templates'       => '/www/my_test_app/t', # same as above; directory for templates (static files like Template1.html also located there)
-  'dir_upload'          => '/www/my_test_app/u', # same as above, only it has not been used even once
+  'dir'                 => '/www/my_test_app/',          # used in $$customRequest{'dir'} inside CustomHandlers
+  'dir_templates'       => '/www/my_test_app/t',         # same as above; directory for templates (static files like Template1.html also located there)
+  'dir_upload'          => '/www/my_test_app/u',         # same as above, only it has not been used even once
   'redis'               => {reconnect=>60, every=>5000}, # redis connection options
-  'redis_db'            => 6, # redis db selection, like 'use 6;'
-  'default_mime'        => 'text/html', #default mime-type, that would be used, if you don't set it manually inside CustomHandlers
-  'escaped'             => 1, # escape output in all templates by default
-  'escaped_chars'       => '\x22\x26\x3c\x3e\xa0', # escaping char sequence
-  'template_clearable'  => 1, # if required parameter was not given inside template, $placeholder would be ereased from the template
-  'session_expire'      => 60, # in seconds, self-explanatory
-  'session_key'         => 'key' # not a secret, but name for session cookie
+  'redis_db'            => 6,                            # redis db selection, like 'use 6;'
+  'default_mime'        => 'text/html',                  #default mime-type, that would be used, if you don't set it manually inside CustomHandlers
+  'escaped'             => 1,                            # escape output in all templates by default
+  'escaped_chars'       => '\x22\x26\x3c\x3e\xa0',       # escaping char sequence
+  'template_clearable'  => 1,                            # if required parameter was not given inside template, $placeholder would be ereased from the template
+  'session_expire'      => 60,                           # in seconds, self-explanatory
+  'session_key'         => 'key'                         # not a secret, but name for session cookie
 };
 
 sub RequestHandler
@@ -163,7 +163,6 @@ sub RequestHandler
 
 The trick is, that $data, $config and any other *global* variable would exist as long as ngx_http_perl_module is active, so don't overdo it with *global* variables in your modules.
 
-You may also want to look inside DemoFuzz.pm and example.pm
-Or not.
+You may also want to look inside DemoFuzz.pm and example.pm files. Or not.
 
 Have a nice day.
