@@ -85,7 +85,7 @@ sub CustomHandler1
 
   $$r{'status'} = 301; # override default 302
 
-  # differences in redirection codes:
+  # differences between redirection codes:
   # * http 301 Permanent Redirect, would be cached inside client browser
   # * http 302 Found, may return different pages for same request (i.e. /random/ call in picture gallries and so on)
 
