@@ -164,5 +164,6 @@ sub RequestHandler
 The trick is, that $data, $config and any other *global* variable would exist as long as ngx_http_perl_module is active, so don't overdo it with *global* variables in your modules.
 
 You may also want to look inside DemoFuzz.pm and example.pm
+Or not.
 
 Have a nice day.
